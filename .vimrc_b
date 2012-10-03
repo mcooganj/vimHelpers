@@ -1,0 +1,137 @@
+" ==> General
+"""""""""""""""""""""""""
+" set statusline
+"set statusline=\%{strftime(\"\%c",getftime(expand(\"\%\%\")))}
+
+" for R plugin use 
+let vimrplugin_screenplugin = 0
+let vimrplugin_underscore = 0 
+inoremap <D-1> <space><-<space>
+
+" source abbreviations dictionary
+source ~/vim/alts/abrev.txt
+
+" eat characters after abbreviation 
+function! Eatchar(pat) 
+        let c = nr2char(getchar(0)) 
+        return (c =~ a:pat) ? '' : c 
+endfunction 
+iabbr <silent> if if ()<left><C-R>=Eatchar('\s')<CR>
+
+"disable ATP plugin
+let g:no_atp=1
+
+" Sets how many lines of history VIM has to remember
+"set history=1000
+
+" Set to autoread when a file is changed from the outside
+"set autoread
+
+" remap autocomplete to <Tab>
+"inoremap <Tab> <C-n>
+
+"remap omni-complete to control space
+inoremap <C-space> <C-x><C-o>
+
+" remap esc to ';;'
+imap ;' <Esc>
+
+" Fast saving
+nmap <leader>w :w!<cr>
+
+" Fast quit - no save
+nmap <leader>q :q!<cr>
+
+" Fast edit of .vimrc
+map <leader>e :e! ~/.vimrc<cr>
+
+" when .vimrc is edited, re-load it
+autocmd! bufwritepost vimrc source ~/.vimrc
+
+" color-scheme
+color koehler
+
+" show numbers
+set number
+
+" hard wrap at 120 chars 
+set textwidth=120
+
+" tabs are 2 space chars
+set tabstop=2
+
+" Auto(indent) uses 2 chars
+set shiftwidth=2
+
+" spaces instead of tabs
+set expandtab
+
+" guess indentation
+set autoindent
+
+" syntax highlight
+syntax enable
+
+" enable all features
+set nocompatible
+
+filetype off                   " required!
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" let Vundle manage Vundle
+" required! 
+Bundle 'gmarik/vundle'
+
+" My Bundles here:
+"
+" original repos on github
+Bundle 'tpope/vim-fugitive'
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+Bundle 'tpope/vim-rails.git'
+Bundle 'rson/vim-conque'
+
+" vim-scripts repos
+Bundle 'L9'
+Bundle 'FuzzyFinder'
+
+" non github repos
+Bundle 'git://git.wincent.com/command-t.git'
+" ...
+
+filetype plugin indent on     " required!
+"
+" Brief help
+" :BundleList          - list configured bundles
+" :BundleInstall(!)    - install(update) bundles
+" :BundleSearch(!) foo - search(or refresh cache first) for foo
+" :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
+"
+" see :h vundle for more details or wiki for FAQ
+" NOTE: comments after Bundle command are not allowed..
+
+" highlight searched-for text 
+set hlsearch 
+
+" jump to matches while typing
+set incsearch
+
+" fold using markers {{{
+" like this
+" }}}
+set foldmethod=marker
+
+" show a ruler
+set ruler
+
+"set background to dark
+set bg=dark
+
+" show matching braces
+set showmatch
+
+" ==>  ***latex-box plugin***
+let g:LatexBox_viewer = 'skim'
+let g:LatexBox_latexmk_options = '-pvc'
