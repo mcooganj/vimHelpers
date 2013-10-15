@@ -20,13 +20,13 @@ autocmd FileType r iabbrev soRH source('~/R/Rhelpers/helperFuncts.r')
 autocmd FileType r iabbrev soRC source('~/R/Rhelpers/RAcolorpal.r')
 
 autocmd FileType r inoreabbrev <silent> ppFunS #{{{set-up Packs and Funs<cr>
-            \rm(list=ls()); gc()<cr>
             \Sys.setenv(TZ = 'UTC')<cr>
             \#<cr>
             \#packages and functions<cr>
             \require(gdata)<cr>
             \require(xts)<cr>
-            \require(timsac)<cr>
+            \require(plyr)<cr>
+            \require(data.table)<cr>
             \require(ggplot2)<cr>
             \require(reshape2)<cr>
             \require(gridExtra)<cr>
@@ -35,7 +35,7 @@ autocmd FileType r inoreabbrev <silent> ppFunS #{{{set-up Packs and Funs<cr>
             \source("~/R/Rhelpers/RAcolorpal.r")<cr>
             \# }}}close setup<c-r>=Eatchar('\m\s\<bar>/')<cr>
 autocmd FileType r inoreabbrev <silent> PATHs # {{{ PATHstuff<cr>
-            \projPATH <- file.path("~/R/")<cr>
+            \projPATH <- file.path("~/Rproject/")<cr>
             \codePATH <- file.path(projPATH, "code")<cr>
             \dataPATH <- file.path(projPATH, "data")<cr>
             \plotPATH <- file.path(projPATH, "plot")<cr>
