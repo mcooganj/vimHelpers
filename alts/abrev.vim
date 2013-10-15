@@ -15,3 +15,28 @@ inoreabbr <silent> rfF <- function(){<cr>}<esc>kf(a<c-r>=Eatchar('\m\s\<bar>\r')
 :iabbr <silent> RAc /Users/mcooganj/RA/code/<c-r>=Eatchar('\m\s\<bar>/')<cr>
 :iabbr <silent> RAd /Users/mcooganj/RA/data/<c-r>=Eatchar('\m\s\<bar>/')<cr>
 :iabbr <silent> RAp /Users/mcooganj/RA/pics/<c-r>=Eatchar('\m\s\<bar>/')<cr>
+
+autocmd FileType r iabbrev soRH source('~/R/Rhelpers/helperFuncts.r')
+autocmd FileType r iabbrev soRC source('~/R/Rhelpers/RAcolorpal.r')
+
+autocmd FileType r inoreabbrev <silent> ppFunS #{{{set-up Packs and Funs<cr>
+            \rm(list=ls()); gc()<cr>
+            \Sys.setenv(TZ = 'UTC')<cr>
+            \#<cr>
+            \#packages and functions<cr>
+            \require(gdata)<cr>
+            \require(xts)<cr>
+            \require(timsac)<cr>
+            \require(ggplot2)<cr>
+            \require(reshape2)<cr>
+            \require(gridExtra)<cr>
+            \require(quantmod)<cr>
+            \source("~/R/Rhelpers/helperFuncts.r")<cr>
+            \source("~/R/Rhelpers/RAcolorpal.r")<cr>
+            \# }}}close setup<c-r>=Eatchar('\m\s\<bar>/')<cr>
+autocmd FileType r inoreabbrev <silent> PATHs # {{{ PATHstuff<cr>
+            \projPATH <- file.path("~/R/")<cr>
+            \codePATH <- file.path(projPATH, "code")<cr>
+            \dataPATH <- file.path(projPATH, "data")<cr>
+            \plotPATH <- file.path(projPATH, "plot")<cr>
+            \# }}}close paths<esc>4k23li<c-r>=Eatchar('\m\s\<bar>\r')<cr>
