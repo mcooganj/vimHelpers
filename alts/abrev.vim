@@ -8,7 +8,7 @@ iabbrev mjW matthew-c.johnson@ubs.com
 
 
 " set up R function and move cursor into function list
-inoreabbr <silent> rfF <- function()<cr>{<cr><cr>}<esc>3k$i<c-r>=Eatchar('\m\s\<bar>\r')<cr>
+inoreabbr <silent> rfF <- function(){<cr>}<esc>kf(a<c-r>=Eatchar('\m\s\<bar>\r')<cr>
 
 :iabbr <silent> RAf /Users/mcooganj/RA/<c-r>=Eatchar('\m\s\<bar>/')<cr>
 :iabbr <silent> RAm /Users/mcooganj/RA/misc/<c-r>=Eatchar('\m\s\<bar>/')<cr>
